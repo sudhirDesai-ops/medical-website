@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <style>
+        body{
+            background-image: url(https://wallpapercave.com/wp/wp13394659.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .loginform {
+            height: 500px;
+            width: 600px;
+            margin: auto;
+            padding: 30px;
+            background-image: url(https://www.pixelstalk.net/wp-content/uploads/2016/07/Beautiful-Full-HD-Photos.jpg);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            border-radius: 5%;
+            border: 1px solid white;
+            
+            
+        }
+
+        .sub{
+            height: 50px;
+            width: 100%;
+            border-radius: 5px;
+            background: transparent;
+            border: 1px solid white;
+        }
+
+        .input1{
+            background-color: transparent;
+            width: 400px;
+            padding-bottom: 20px;
+            
+        }
+
+        .login{
+            color: white;
+            display: flex;
+            align-items: center;
+            padding-bottom: 20px;
+            justify-content: center;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .icon{
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .fb{
+            color: #0862F7;
+            background-color: white;
+            height: 25px;
+            width: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        .twtr{
+            color: #1C96E8;
+            background-color: white;
+            height: 25px;
+            width: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .in{
+            color: #0274B0;
+            background-color: white;
+            height: 25px;
+            width: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        .google{
+            color: #4081EC;
+            background-color: white;
+            height: 25px;
+            width: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body class="justify-content-center align-items-center" style="height: 100vh;">
+   
+    <div class="loginform d-flex align-items-center justify-content-center">
+                
+
+                <form action="" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    <h1 class="login">LOGIN FORM</h1>
+
+                    <div class="form-floating mb-3 input1">
+                        <input type="email" name="email" class="form-control" placeholder="" style="background: transparent; color: white;">
+                        <label for="" class="form-label text-white">ENTER YOUR NAME</label>
+                    </div>
+
+
+                     <div class="form-floating mb-3 input1">
+                        <input type="text" name="password" class="form-control" style="background: transparent; color: white;" placeholder="">
+                        <label for="" class="form-label text-white">PASSWORD</label>
+                    </div>
+                    <div class="">`
+                    <button class="sub" type="submit">SIGN UP</a></button>
+                    </div>
+
+                    <div class="icon d-flex gap-4 mt-3">
+                        <div class="fb"><i class="bi bi-facebook"></i></div>
+                        <div class="twtr"><i class="bi bi-twitter"></i></div>
+                        <div class="in"><i class="bi bi-linkedin"></i></div>
+                        <div class="google"><i class="bi bi-google"></i></div>
+                    </div>
+                </form>
+            </div>
+            <br>
+            <br>
+
+            <table class="table table-danger table-bordered table-striped table-hover">
+                <tr>
+                    <th>Sir No.</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>Del</th>
+                </tr>
+                {% for sudhir in sudhir %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{sudhir.email}}</td>
+                    <td>{{sudhir.password}}</td>
+                    <td>
+                        <a href="{% url 'delete' sudhir.id %}" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+
+</html>
